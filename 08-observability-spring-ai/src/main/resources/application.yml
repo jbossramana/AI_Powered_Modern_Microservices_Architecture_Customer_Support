@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 08-observability-spring-ai
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_CHAT_MODEL:llama3.2:latest}
+          temperature: 0.3
+      init:
+        pull-model-strategy: when_missing
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # health/info/metrics are safe to expose broadly; prometheus is typically
+        # restricted to internal scrapers only in a real deployment.
+        include: health,info,metrics,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  tracing:
+    sampling:
+      probability: 1.0 # 100% for local demo visibility; use a much lower value in production
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
+
+logging:
+  level:
+    com.acmesupport: INFO
+    org.springframework.ai: INFO

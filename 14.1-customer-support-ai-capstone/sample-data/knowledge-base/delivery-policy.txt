@@ -1,0 +1,3 @@
+Delivery delays:
+First verify payment and shipment status. Apologize for the delay, provide only a confirmed
+delivery estimate, and escalate if tracking has not updated for 48 hours.

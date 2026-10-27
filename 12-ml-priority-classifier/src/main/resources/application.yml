@@ -1,0 +1,14 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: ml-priority-client
+
+services:
+  ml-priority:
+    base-url: ${ML_SERVICE_URL:http://localhost:8000}
+
+logging:
+  level:
+    com.acmesupport: INFO

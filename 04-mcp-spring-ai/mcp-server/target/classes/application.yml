@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mcp-server
+  ai:
+    mcp:
+      server:
+        name: acme-enterprise-systems
+        version: 1.0.0
+        # Default SSE endpoint is exposed at /sse - the client module points here.
+
+logging:
+  level:
+    com.acmesupport: INFO
+    io.modelcontextprotocol: INFO

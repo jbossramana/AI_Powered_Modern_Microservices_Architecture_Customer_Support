@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: customer-support-mcp-server
+  ai:
+    mcp:
+      server:
+        name: customer-support-tools
+        version: 1.0.0
+        protocol: STREAMABLE
+        type: SYNC
+        instructions: "Customer support demo tools for checking orders and support tickets."
+        capabilities:
+          tool: true

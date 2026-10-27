@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: saga-orchestrator-service
+
+services:
+  ticket:
+    base-url: ${TICKET_SERVICE_URL:http://localhost:8081}
+  billing:
+    base-url: ${BILLING_SERVICE_URL:http://localhost:8082}
+  communication:
+    base-url: ${COMMUNICATION_SERVICE_URL:http://localhost:8083}
+
+logging:
+  level:
+    com.acmesupport: INFO

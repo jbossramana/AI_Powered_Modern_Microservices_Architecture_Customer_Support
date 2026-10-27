@@ -1,0 +1,8 @@
+Ticket ID: TCK-10025
+Customer: Ravi
+Order: ORD-10025
+
+I ordered a laptop on October 10 and expected delivery on October 14. It has not arrived.
+I contacted support twice. I was told that payment succeeded but shipment is delayed.
+Please provide an update and confirm delivery. If this is not resolved within two days,
+I may request a refund.

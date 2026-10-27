@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ticket-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ticket-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+# Plain event envelopes, JSON-encoded by hand with Jackson rather than Spring Kafka's
+# JsonSerializer/JsonDeserializer - see the top-level README for why. Topic names are
+# centralized here so a rename is a config change, not a find-and-replace across code.
+topics:
+  ticket-events: ticket-events
+  billing-events: billing-events
+  refund-outcomes: refund-outcomes
+
+logging:
+  level:
+    com.acmesupport: INFO

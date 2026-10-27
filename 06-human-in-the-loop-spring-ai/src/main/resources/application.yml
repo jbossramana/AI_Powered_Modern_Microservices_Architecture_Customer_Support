@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 06-human-in-the-loop-spring-ai
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_CHAT_MODEL:llama3.2:latest}
+          temperature: 0.3
+      init:
+        pull-model-strategy: when_missing
+
+logging:
+  level:
+    com.acmesupport: INFO

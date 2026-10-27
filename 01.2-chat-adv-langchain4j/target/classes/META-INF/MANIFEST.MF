@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Java-Version: 21
+Build-Jdk-Spec: 25
+Implementation-Title: 01.2-chat-adv-langchain4j
+Implementation-Version: 2.0.0
+Created-By: Maven Integration for Eclipse
+

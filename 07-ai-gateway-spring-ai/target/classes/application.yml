@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 07-ai-gateway-spring-ai
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_CHAT_MODEL:llama3.2:latest}
+          temperature: 0.3
+      init:
+        pull-model-strategy: when_missing
+
+# Two demo API keys with different rate limits - stand-ins for two internal teams or
+# partner integrations sharing one gateway in front of the model.
+gateway:
+  api-keys:
+    demo-internal-portal:
+      client-name: "Internal Support Portal"
+      requests-per-minute: 20
+    demo-partner-integration:
+      client-name: "Partner Integration"
+      requests-per-minute: 5
+
+logging:
+  level:
+    com.acmesupport: INFO

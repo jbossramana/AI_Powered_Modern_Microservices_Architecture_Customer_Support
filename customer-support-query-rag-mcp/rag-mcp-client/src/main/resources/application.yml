@@ -1,0 +1,27 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: customer-support-query-rag-mcp
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3.2:latest
+      embedding:
+        options:
+          model: nomic-embed-text
+
+    mcp:
+      client:
+        enabled: true
+        name: customer-support-rag-client
+        version: 1.0.0
+        type: SYNC
+        request-timeout: 30s
+        sse:
+          enterprise-systems:
+              base-uri: ${MCP_SERVER_URL:http://localhost:8081}

@@ -1,0 +1,20 @@
+{
+  "groups": [
+    {
+      "name": "gateway",
+      "type": "com.acmesupport.gateway.GatewayProperties",
+      "sourceType": "com.acmesupport.gateway.GatewayProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "gateway.api-keys",
+      "type": "java.util.Map<java.lang.String,com.acmesupport.gateway.GatewayProperties$ApiKeyConfig>",
+      "sourceType": "com.acmesupport.gateway.GatewayProperties"
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}
