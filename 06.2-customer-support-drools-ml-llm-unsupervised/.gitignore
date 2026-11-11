@@ -1,0 +1,10 @@
+target/
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+# Python virtual environments and generated files
+ml-service/.venv/
+ml-service/__pycache__/
+*.py[cod]

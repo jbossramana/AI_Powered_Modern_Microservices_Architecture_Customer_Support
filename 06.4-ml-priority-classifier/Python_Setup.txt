@@ -1,0 +1,22 @@
+1. Install Python
+
+Download Python for Windows from:
+
+Python Downloads for Windows
+
+Install Python 3.13.x 64-bit.
+
+2. cd model
+pip install -r requirements.txt
+
+3. python3 -m pip install pandas joblib scikit-learn numpy
+
+4. python3 -m ensurepip --upgrade
+python3 -m pip install --upgrade pip
+python3 -m pip install pandas joblib scikit-learn numpy
+
+5. python -m pip install --upgrade scikit-learn==1.9.1
+
+6. python3 generate_training_data.py   # writes tickets_training_data.csv
+python3 train_model.py              # trains, evaluates, writes priority_model.joblib
+uvicorn serve:app --host 0.0.0.0 --port 8000

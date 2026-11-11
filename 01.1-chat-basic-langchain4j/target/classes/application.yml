@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 00-chat-langchain4j
+
+# LangChain4j has no Spring Boot autoconfiguration in plain Spring Boot (that's what the
+# separate "langchain4j-spring-boot-starter" / Quarkus extensions are for). Here we read
+# our own small set of properties and wire the model by hand in AssistantConfig - which
+# is instructive in itself: you can see exactly what's being constructed.
+support:
+  ollama:
+    base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+    model-name: ${OLLAMA_CHAT_MODEL:llama3.2:latest}
+    temperature: 0.4
+
+logging:
+  level:
+    com.acmesupport: INFO
+    dev.langchain4j: INFO

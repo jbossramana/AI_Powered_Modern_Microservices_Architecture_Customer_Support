@@ -1,0 +1,21 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mcp-server
+
+  ai:
+    mcp:
+      server:
+        protocol: STREAMABLE
+        name: acme-enterprise-systems
+        version: 1.0.0
+        type: SYNC
+
+logging:
+  level:
+    com.acmesupport: INFO
+    org.springframework.ai.mcp: DEBUG
+    io.modelcontextprotocol: DEBUG

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: customer-support-chat
+  ai:
+    openai:
+      api-key: 
+      base-url: https://api.groq.com/openai/v1
+      chat:
+        model: openai/gpt-oss-120b
+        temperature: 0.2
+
+server:
+  port: 8080

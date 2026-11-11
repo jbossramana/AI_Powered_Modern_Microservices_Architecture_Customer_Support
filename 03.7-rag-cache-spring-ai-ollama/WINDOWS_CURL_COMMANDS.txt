@@ -1,0 +1,21 @@
+WINDOWS COMMAND PROMPT (CMD) CURL COMMANDS
+
+1. Check Ollama:
+curl.exe http://localhost:11434/api/tags
+
+2. Ask a RAG question:
+curl.exe -X POST "http://localhost:8080/api/rag/ask" -H "Content-Type: application/json" -d "{\"question\":\"What is the refund policy for a duplicate payment?\"}"
+
+3. Ask about refund processing:
+curl.exe -X POST "http://localhost:8080/api/rag/ask" -H "Content-Type: application/json" -d "{\"question\":\"How long does an approved refund normally take?\"}"
+
+4. Add a document:
+curl.exe -X POST "http://localhost:8080/api/rag/documents" -H "Content-Type: application/json" -d "{\"title\":\"Refund exceptions\",\"content\":\"Duplicate payments require transaction verification and approval. Approved refunds normally take 5 to 7 business days.\"}"
+
+5. Cache statistics:
+curl.exe "http://localhost:8080/api/rag/cache/stats"
+
+6. Clear answer cache:
+curl.exe -X DELETE "http://localhost:8080/api/rag/cache"
+
+

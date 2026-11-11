@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: customer-support-tools
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: ${OLLAMA_MODEL:llama3.2:latest}
+          temperature: 0.1
+    chat:
+      observations:
+        log-prompt: true
+        log-completion: true
+        include-error-logging: true
+
+logging:
+  level:
+    root: INFO
+    com.example.support: DEBUG
+    org.springframework.ai: DEBUG
+    org.springframework.ai.chat.client: DEBUG
+    org.springframework.ai.ollama: DEBUG
+    org.springframework.web.client: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%thread] %logger{40} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

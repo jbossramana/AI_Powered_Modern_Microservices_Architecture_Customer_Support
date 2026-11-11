@@ -1,0 +1,35 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mcp-client
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2:latest
+          temperature: 0.2
+
+    mcp:
+      client:
+        enabled: true
+        name: acme-support-mcp-client
+        version: 1.0.0
+        type: SYNC
+        request-timeout: 30s
+        streamable-http:
+          connections:
+            enterprise-systems:
+              url: "http://localhost:8081"
+              endpoint: "/mcp"
+
+logging:
+  level:
+    root: INFO
+    com.acmesupport: DEBUG
+    org.springframework.ai.mcp: DEBUG
+    io.modelcontextprotocol: DEBUG

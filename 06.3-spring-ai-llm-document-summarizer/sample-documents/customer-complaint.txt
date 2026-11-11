@@ -1,0 +1,11 @@
+Customer Name: Ravi
+Order Number: ORD-10025
+
+The customer ordered a laptop on October 10. The expected delivery date was October 14.
+However, the product has not been delivered.
+
+The customer contacted support twice. The support team confirmed that payment was
+successful, but the shipment is delayed.
+
+The customer is requesting an immediate update and delivery confirmation. If the issue
+is not resolved within two days, the customer may request a refund.

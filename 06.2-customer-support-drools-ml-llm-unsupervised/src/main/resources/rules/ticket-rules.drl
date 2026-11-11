@@ -1,0 +1,31 @@
+package rules
+import com.example.support.model.TicketFacts;
+
+rule "Critical production incident"
+when
+  $t : TicketFacts(category == "PRODUCTION_INCIDENT", priority == "CRITICAL")
+then
+  $t.setEscalate(true);
+  $t.setAssignedTeam("INCIDENT_RESPONSE");
+  $t.setReason("Critical production incident");
+  $t.setHumanApprovalRequired(true);
+  update($t);
+end
+
+rule "Enterprise routing if specialist team not assigned"
+when
+  $t : TicketFacts(enterpriseCustomer == true, assignedTeam == null)
+then
+  $t.setAssignedTeam("ENTERPRISE_SUPPORT");
+  if ($t.getReason() == null) { $t.setReason("Enterprise customer routing"); }
+  update($t);
+end
+
+rule "Review low confidence"
+when
+  $t : TicketFacts(confidence < 0.70)
+then
+  $t.setHumanApprovalRequired(true);
+  if ($t.getReason() == null) { $t.setReason("ML prediction requires human review"); }
+  update($t);
+end

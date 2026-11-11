@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-ai-java-object-demo
+  ai:
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          model: ${OLLAMA_CHAT_MODEL:llama3.2:latest}
+server:
+  port: 8080
