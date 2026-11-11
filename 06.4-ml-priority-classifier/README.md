@@ -96,13 +96,9 @@ curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -
 
 
 **Genuinely middle-of-the-road** ("running into an issue, would appreciate help"):
-```bash
-curl -s -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{
-  "subject": "Login issue",
-  "body": "Running into an issue here and would appreciate some help when you can.",
-  "plan_tier": "PRO", "account_age_days": 200, "prior_ticket_count_30d": 1
-}'
-```
+curl -X POST http://localhost:8000/predict ^
+-H "Content-Type: application/json" ^
+-d "{\"subject\":\"Login issue\",\"body\":\"Running into an issue here and would appreciate some help when you can.\",\"plan_tier\":\"PRO\",\"account_age_days\":200,\"prior_ticket_count_30d\":1}"
 ```json
 {"priority":"MEDIUM","confidence":0.9054,"class_probabilities":{"HIGH":0.0476,"LOW":0.0355,"MEDIUM":0.9054,"URGENT":0.0115}}
 ```
